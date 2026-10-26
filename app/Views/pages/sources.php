@@ -56,5 +56,20 @@
                 </tbody>
             </table>
         </div>
+
+        <h2>Elementos de la lista inicial que no se publicaron</h2>
+        <p>Al verificar los recursos compartidos por la comunidad, algunos enlaces no correspondían a un recurso disponible. Para no recomendar enlaces muertos, se excluyeron o se sustituyeron por la fuente oficial:</p>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead><tr><th>Recurso mencionado</th><th>Resultado de la verificación (26/10/2026)</th><th>Qué se publicó</th></tr></thead>
+                <tbody>
+                    <tr><td><code>devshaheen/100_crops_plants_object_detection_25k</code></td><td>La página de Hugging Face responde 404. No fue posible confirmar el repositorio.</td><td>No se publicó. Se puede sustituir por iNatAg o por los datasets de AgML.</td></tr>
+                    <tr><td><code>Project-AgML/AgML</code> como dataset de Hugging Face</td><td>El identificador no existe como dataset; AgML es un framework en GitHub.</td><td>Ficha de AgML enlazada a GitHub (Apache-2.0).</td></tr>
+                    <tr><td><code>Sony/Hokkaido_Agriculture_Image_Dataset</code></td><td>Existe, pero el acceso es restringido y requiere solicitud.</td><td>Ficha publicada con la advertencia de acceso bajo solicitud.</td></tr>
+                    <tr><td><code>manavg23/Precision-Agriculture</code> y chatbots agrícolas</td><td>Los Spaces existen, pero son demostraciones educativas sin validación técnica para México.</td><td>Fichas publicadas con viabilidad baja y advertencia de uso.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Si conoces la URL correcta de alguno de estos recursos, envíala con el formulario de contacto y la agregamos con su ficha completa.</p>
     </article>
 </div>
