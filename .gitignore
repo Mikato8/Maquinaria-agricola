@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+storage/logs/*
+!storage/logs/.gitkeep
+storage/sessions/*
+!storage/sessions/.gitkeep
+storage/cache/*
+!storage/cache/.gitkeep
+storage/constancias/*
+public/uploads/*
+!public/uploads/.gitkeep
+docs/credenciales-admin.txt
+docs/paquete/
+*.tar.gz
+.DS_Store
+capturas/

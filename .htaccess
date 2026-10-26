@@ -1,0 +1,17 @@
+# Documento raíz = public_html. Redirige a public/ y bloquea rutas sensibles.
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^(app|config|database|storage|bin|docs|tools|routes)(/|$) - [F,L]
+    RewriteRule ^\.env - [F,L]
+    RewriteRule ^(README\.md|LICENSE|CONTENIDO-LICENCIA\.md|DESPLIEGUE\.md|\.git)(/|$) - [F,L]
+
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
