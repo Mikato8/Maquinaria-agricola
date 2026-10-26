@@ -21,7 +21,7 @@ final class ContentRepository
         if ($q !== '') {
             $params[] = '%' . $q . '%';
             $p = count($params);
-            $where[] = "(name ilike \$$p or vendor ilike \$$p or description ilike \$$p)";
+            $where[] = "(f_unaccent(name) ilike f_unaccent(\$$p) or f_unaccent(vendor) ilike f_unaccent(\$$p) or f_unaccent(description) ilike f_unaccent(\$$p))";
         }
         if (($filters['kind'] ?? '') !== '') {
             $params[] = $filters['kind'];
@@ -80,7 +80,7 @@ final class ContentRepository
         if ($q !== '') {
             $params[] = '%' . $q . '%';
             $p = count($params);
-            $where[] = "(name ilike \$$p or city ilike \$$p or notes ilike \$$p)";
+            $where[] = "(f_unaccent(name) ilike f_unaccent(\$$p) or f_unaccent(city) ilike f_unaccent(\$$p) or f_unaccent(notes) ilike f_unaccent(\$$p))";
         }
         if (($filters['type'] ?? '') !== '') {
             $params[] = $filters['type'];
@@ -139,7 +139,7 @@ final class ContentRepository
         $q = trim((string) ($filters['q'] ?? ''));
         if ($q !== '') {
             $params[] = $q;
-            $where[] = 'search_vector @@ plainto_tsquery(\'spanish\', $' . count($params) . ')';
+            $where[] = 'search_vector @@ plainto_tsquery(\'spanish\', f_unaccent($' . count($params) . '))';
         }
         if (($filters['category'] ?? '') !== '') {
             $params[] = $filters['category'];
@@ -200,7 +200,7 @@ final class ContentRepository
         if ($q !== '') {
             $params[] = '%' . $q . '%';
             $p = count($params);
-            $where[] = "(term ilike \$$p or definition ilike \$$p)";
+            $where[] = "(f_unaccent(term) ilike f_unaccent(\$$p) or f_unaccent(definition) ilike f_unaccent(\$$p))";
         }
         if ($category !== '') {
             $params[] = $category;

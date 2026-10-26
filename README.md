@@ -72,7 +72,7 @@ Todas muestran supuestos, fórmulas y límites. Los resultados son orientativos 
 - 30 fallas con síntoma, causas (probabilidad, prueba, corrección), procedimiento paso a paso, herramientas, refacciones, costo, tiempo, dificultad y seguridad.
 - 16 códigos SPN/FMI del estándar J1939 con explicación, causas y acción.
 - Planes de mantenimiento a 25, 50, 250, 500, 1000 y 2000 horas para tractor, compacto, cosechadora, pulverizadora, forrajera y motocultor; checklist imprimible.
-- Búsqueda full-text en español y filtros por sistema, máquina y gravedad.
+- Búsqueda full-text en español, insensible a acentos, y filtros por sistema, máquina y gravedad.
 
 ### Tecnología y datos
 

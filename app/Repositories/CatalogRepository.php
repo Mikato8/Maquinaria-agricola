@@ -31,7 +31,7 @@ final class CatalogRepository
             $tsParam = count($params);
             $params[] = '%' . $q . '%';
             $likeParam = count($params);
-            $where[] = "(m.search_vector @@ plainto_tsquery('spanish', \$$tsParam) or m.name ilike \$$likeParam or b.name ilike \$$likeParam)";
+            $where[] = "(m.search_vector @@ plainto_tsquery('spanish', f_unaccent(\$$tsParam)) or f_unaccent(m.name) ilike f_unaccent(\$$likeParam) or f_unaccent(b.name) ilike f_unaccent(\$$likeParam))";
         }
 
         $category = (string) ($filters['category'] ?? '');
@@ -86,7 +86,7 @@ final class CatalogRepository
             'precio_desc' => 'm.price_min_mxn desc nulls last, m.name asc',
             'nuevos' => 'm.year_from desc nulls last, m.name asc',
             default => $tsParam !== null
-                ? 'ts_rank(m.search_vector, plainto_tsquery(\'spanish\', $' . $tsParam . ')) desc, m.power_hp desc nulls last'
+                ? 'ts_rank(m.search_vector, plainto_tsquery(\'spanish\', f_unaccent($' . $tsParam . '))) desc, m.power_hp desc nulls last'
                 : "case m.category when 'tractor' then 0 when 'cosechadora' then 1 when 'pulverizadora' then 2 when 'forrajera' then 3 else 4 end, m.power_hp asc nulls last, m.name asc",
         };
 
@@ -181,7 +181,7 @@ final class CatalogRepository
             $tsParam = count($params);
             $params[] = '%' . $q . '%';
             $likeParam = count($params);
-            $where[] = "(search_vector @@ plainto_tsquery('spanish', \$$tsParam) or name ilike \$$likeParam)";
+            $where[] = "(search_vector @@ plainto_tsquery('spanish', f_unaccent(\$$tsParam)) or f_unaccent(name) ilike f_unaccent(\$$likeParam))";
         }
         if (($filters['category'] ?? '') !== '') {
             $params[] = $filters['category'];

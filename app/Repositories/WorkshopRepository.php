@@ -25,8 +25,8 @@ final class WorkshopRepository
             $tsParam = count($params);
             $params[] = '%' . $q . '%';
             $likeParam = count($params);
-            $where[] = "(c.search_vector @@ plainto_tsquery('spanish', \$$tsParam) or c.title ilike \$$likeParam
-                         or c.machine_label ilike \$$likeParam)";
+            $where[] = "(c.search_vector @@ plainto_tsquery('spanish', f_unaccent(\$$tsParam)) or f_unaccent(c.title) ilike f_unaccent(\$$likeParam)
+                         or f_unaccent(c.machine_label) ilike f_unaccent(\$$likeParam))";
         }
         if (($filters['category'] ?? '') !== '') {
             $params[] = $filters['category'];
@@ -48,7 +48,7 @@ final class WorkshopRepository
             'vistos' => 'c.views desc, c.published_at desc',
             'util' => '(select count(*) from reactions r where r.target_type = \'taller\' and r.target_id = c.id) desc, c.published_at desc',
             default => $tsParam !== null
-                ? 'ts_rank(c.search_vector, plainto_tsquery(\'spanish\', $' . $tsParam . ')) desc, c.published_at desc'
+                ? 'ts_rank(c.search_vector, plainto_tsquery(\'spanish\', f_unaccent($' . $tsParam . '))) desc, c.published_at desc'
                 : 'c.featured desc, c.published_at desc',
         };
 

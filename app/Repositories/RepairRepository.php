@@ -24,7 +24,7 @@ final class RepairRepository
             $tsParam = count($params);
             $params[] = '%' . $q . '%';
             $likeParam = count($params);
-            $where[] = "(search_vector @@ plainto_tsquery('spanish', \$$tsParam) or title ilike \$$likeParam)";
+            $where[] = "(search_vector @@ plainto_tsquery('spanish', f_unaccent(\$$tsParam)) or f_unaccent(title) ilike f_unaccent(\$$likeParam))";
         }
         if (($filters['system'] ?? '') !== '') {
             $params[] = $filters['system'];
@@ -48,7 +48,7 @@ final class RepairRepository
             'vistas' => 'views desc, title',
             'nuevas' => 'created_at desc',
             default => $tsParam !== null
-                ? 'ts_rank(search_vector, plainto_tsquery(\'spanish\', $' . $tsParam . ')) desc, views desc'
+                ? 'ts_rank(search_vector, plainto_tsquery(\'spanish\', f_unaccent($' . $tsParam . '))) desc, views desc'
                 : "case severity when 'critica' then 0 when 'alta' then 1 when 'media' then 2 else 3 end asc, views desc",
         };
 
@@ -107,7 +107,7 @@ final class RepairRepository
         if ($q !== '') {
             $params[] = '%' . $q . '%';
             $likeParam = count($params);
-            $where[] = "(code ilike \$$likeParam or title ilike \$$likeParam or description ilike \$$likeParam)";
+            $where[] = "(code ilike \$$likeParam or f_unaccent(title) ilike f_unaccent(\$$likeParam) or description ilike \$$likeParam)";
         }
         if ($system !== '') {
             $params[] = $system;

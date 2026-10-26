@@ -24,37 +24,37 @@ final class SearchController extends BaseController
                     'label' => 'Máquinas', 'base' => '/maquinas/',
                     'sql' => "select id, slug, name, summary as description, brand_name as extra, '/maquinas/' as base
                               from (select m.id, m.slug, m.name, m.summary, b.name as brand_name from machines m join brands b on b.id = m.brand_id where m.status = 'publicado') m
-                              where name ilike \$1 or brand_name ilike \$1 or summary ilike \$1 order by name limit 12",
+                              where f_unaccent(name) ilike f_unaccent(\$1) or f_unaccent(brand_name) ilike f_unaccent(\$1) or f_unaccent(summary) ilike f_unaccent(\$1) order by name limit 12",
                 ],
                 'implementos' => [
                     'label' => 'Implementos', 'base' => '/implementos/',
                     'sql' => "select id, slug, name, function as description, category as extra, '/implementos/' as base
-                              from implements where status = 'publicado' and (name ilike \$1 or function ilike \$1 or description ilike \$1) order by name limit 12",
+                              from implements where status = 'publicado' and (f_unaccent(name) ilike f_unaccent(\$1) or f_unaccent(function) ilike f_unaccent(\$1) or f_unaccent(description) ilike f_unaccent(\$1)) order by name limit 12",
                 ],
                 'fallas' => [
                     'label' => 'Fallas', 'base' => '/fallas/',
                     'sql' => "select id, slug, title as name, symptom as description, system as extra, '/fallas/' as base
-                              from faults where status = 'publicado' and (title ilike \$1 or symptom ilike \$1 or prevention ilike \$1) order by views desc limit 12",
+                              from faults where status = 'publicado' and (f_unaccent(title) ilike f_unaccent(\$1) or f_unaccent(symptom) ilike f_unaccent(\$1) or f_unaccent(prevention) ilike f_unaccent(\$1)) order by views desc limit 12",
                 ],
                 'guias' => [
                     'label' => 'Guías', 'base' => '/guias/',
                     'sql' => "select id, slug, title as name, summary as description, category as extra, '/guias/' as base
-                              from guides where title ilike \$1 or summary ilike \$1 or body ilike \$1 order by published_at desc limit 12",
+                              from guides where f_unaccent(title) ilike f_unaccent(\$1) or f_unaccent(summary) ilike f_unaccent(\$1) or f_unaccent(body) ilike f_unaccent(\$1) order by published_at desc limit 12",
                 ],
                 'tecnologia' => [
                     'label' => 'Tecnología y datos', 'base' => '/tecnologia/',
                     'sql' => "select id, slug, name, description, kind as extra, '/tecnologia/' as base
-                              from tech_resources where name ilike \$1 or description ilike \$1 or vendor ilike \$1 order by name limit 12",
+                              from tech_resources where f_unaccent(name) ilike f_unaccent(\$1) or f_unaccent(description) ilike f_unaccent(\$1) or f_unaccent(vendor) ilike f_unaccent(\$1) order by name limit 12",
                 ],
                 'taller' => [
                     'label' => 'Casos de taller', 'base' => '/taller/',
                     'sql' => "select id, slug, title as name, summary as description, machine_label as extra, '/taller/' as base
-                              from workshop_cases where status = 'publicado' and (title ilike \$1 or symptom ilike \$1 or repair ilike \$1 or machine_label ilike \$1) order by published_at desc limit 12",
+                              from workshop_cases where status = 'publicado' and (f_unaccent(title) ilike f_unaccent(\$1) or f_unaccent(symptom) ilike f_unaccent(\$1) or f_unaccent(repair) ilike f_unaccent(\$1) or f_unaccent(machine_label) ilike f_unaccent(\$1)) order by published_at desc limit 12",
                 ],
                 'proveedores' => [
                     'label' => 'Proveedores', 'base' => '/proveedores/',
                     'sql' => "select id, slug, name, notes as description, city as extra, '/proveedores/' as base
-                              from providers where name ilike \$1 or notes ilike \$1 or city ilike \$1 order by name limit 12",
+                              from providers where f_unaccent(name) ilike f_unaccent(\$1) or f_unaccent(notes) ilike f_unaccent(\$1) or f_unaccent(city) ilike f_unaccent(\$1) order by name limit 12",
                 ],
             ];
 
