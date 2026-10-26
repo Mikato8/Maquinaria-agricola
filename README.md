@@ -232,7 +232,7 @@ storage/           logs, sesiones y comprobantes privados
 
 ## Fuentes y verificación
 
-Las especificaciones se contrastan con fichas de distribuidor y manuales públicos; los precios son rangos de referencia revisados por temporada; las fallas se documentan por síntoma y prueba, no por «cambia esta pieza». Cada recurso tecnológico indica la fecha de verificación.
+El catálogo inicial se construyó con fichas públicas, manuales y conocimiento técnico del sector, y se marca como **referencia en revisión**: las especificaciones y precios pueden diferir de la unidad concreta. Las fallas se documentan por síntoma y prueba, no por «cambia esta pieza». Cada recurso tecnológico indica la fecha de verificación. Cada recurso tecnológico indica la fecha de verificación.
 
 Metodología y límites: [/fuentes](https://lightslategrey-aardvark-281629.hostingersite.com/fuentes). Correcciones: formulario de contacto con modelo, año, página del manual y edición.
 

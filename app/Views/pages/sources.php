@@ -18,7 +18,8 @@
 <div class="container prose-page">
     <article class="prose">
         <h2>1. Especificaciones de máquinas</h2>
-        <p>Se toman de fichas técnicas de distribuidor, manuales de operación y bases públicas de fabricantes. Se registran potencia nominal y a la TDF, cilindrada, transmisión, caudal hidráulico, capacidad de levante y peso. Cuando un dato no está disponible se deja como «no declarado» en lugar de estimarlo.</p>
+        <p>El catálogo inicial se construyó con fichas públicas de distribuidor, manuales de operación y conocimiento técnico del sector. Se registran potencia nominal y a la TDF, cilindrada, transmisión, caudal hidráulico, capacidad de levante y peso. Cuando un dato no está disponible se deja como «no declarado» en lugar de estimarlo.</p>
+        <p><strong>Estado actual:</strong> las fichas están en revisión continua. Las especificaciones y los precios son de referencia y pueden diferir de la unidad concreta, del año-modelo o de la configuración para México. Cada ficha lo indica y remite al distribuidor.</p>
         <p><strong>Límite:</strong> la configuración cambia por año, mercado y opciones. Un modelo 2020 puede diferir de uno 2024 con el mismo nombre comercial. Confirma siempre con el concesionario y con el manual de la unidad específica.</p>
 
         <h2>2. Precios</h2>

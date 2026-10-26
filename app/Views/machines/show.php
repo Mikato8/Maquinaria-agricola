@@ -117,8 +117,8 @@ if ($machine['price_min_mxn'] !== null) {
                 </table>
             <?php endforeach; ?>
             <p class="calc-note">
-                Especificaciones de referencia recopiladas de fichas de distribuidor y manuales públicos. La configuración cambia por año, mercado y opciones.
-                Confirma con el concesionario antes de comprar y usa el manual de operación para límites de carga y lastre.
+                Ficha de referencia en revisión. Los datos se construyeron con fichas públicas y conocimiento técnico; la configuración cambia por año, mercado y opciones.
+                Confirma potencia, levante y precio con el concesionario, y usa el manual de la unidad para límites de carga y lastre.
             </p>
         </section>
 
