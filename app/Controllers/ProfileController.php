@@ -95,7 +95,7 @@ final class ProfileController extends BaseController
 
         try {
             $url = Upload::image($file, 'avatares', (string) config('app.uploads.avatars_path'), (string) config('app.uploads.avatars_url'), 600);
-            (new UserRepository())->setAvatar((int) $user['id'], $url);
+            (new UserRepository())->setAvatar((int) $user['id'], $url['url']);
             $this->audit('perfil.avatar', 'usuario', (int) $user['id']);
             Flash::success('Foto actualizada.');
         } catch (\Throwable $e) {

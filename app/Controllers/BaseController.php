@@ -105,7 +105,7 @@ abstract class BaseController
                     'error' => $files['error'][$index] ?? UPLOAD_ERR_NO_FILE,
                     'size' => $files['size'][$index] ?? 0,
                 ], 'taller-' . $caseId);
-                (new \App\Repositories\WorkshopRepository())->addImage($caseId, $image, '');
+                (new \App\Repositories\WorkshopRepository())->addImage($caseId, $image['url'], '');
                 $saved++;
             } catch (\Throwable $e) {
                 Flash::error('Una imagen no se pudo guardar: ' . $e->getMessage());

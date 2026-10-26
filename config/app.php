@@ -27,8 +27,8 @@ return [
     'uploads' => [
         'images_path' => BASE_PATH . '/public/uploads/taller',
         'images_url' => '/uploads/taller',
-        'avatars_path' => BASE_PATH . '/public/uploads/avatares',
-        'avatars_url' => '/uploads/avatares',
+        'avatars_path' => BASE_PATH . '/public/uploads',
+        'avatars_url' => '/uploads',
         'proofs_path' => BASE_PATH . '/storage/constancias',
         'max_bytes' => (int) env('UPLOAD_MAX_BYTES', (string) (8 * 1024 * 1024)),
         'max_files' => (int) env('UPLOAD_MAX_FILES', '4'),
